@@ -1,0 +1,232 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+   
+   .Submission{          
+      font-weight:bold;
+      color:white;    
+   }
+   .sub{   
+      
+      background-color:cornflowerblue;
+      font-size:20px;
+      font-weight:bold;
+      padding:25px;
+      height: 120px;
+      color:white; 
+    
+   }
+
+	.ViewSub {
+		background-color: lavender;
+		padding-left: 10px;
+		padding-right: 25px;
+		padding-top: 10px;
+		color: dodgerblue;
+	}
+
+	.viewstudent {
+		
+		font-weight: bold;
+      color:dodgerblue;
+      
+	}
+   
+
+	.ViewStud {
+		background-color: lavender;
+		padding-left: 10px;
+		padding-right: 25px;
+		padding-top: 10px;
+		color: dodgerblue;
+	}
+
+	.Supervisor {
+		font-weight: bold;
+		margin-top: 15px;
+		color: white;
+	}
+      
+  
+	.sup {
+		background-color: cornflowerblue;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 20px;
+		height: 120px;
+	}
+
+   .ViewSup{
+      background-color: lavender;
+		padding-left: 10px;
+      padding-right:25px;
+		padding-top: 10px;
+      color:dodgerblue;
+   }
+
+   .download{
+      margin-top:10px;
+   }
+
+	.pdf {
+
+		background-color: lemonchiffon;
+		font-size: 20px;	
+		font-weight: bold;
+		padding: 25px;
+		height: 80px;
+		color: chocolate;
+	}
+
+   
+	.report {
+		background-color: lavender;
+		padding-left: 10px;
+		padding-right: 25px;
+		padding-top: 5px;
+		color: dodgerblue;
+	}
+
+	.csv {
+		background-color: lemonchiffon;
+		font-size: 20px;
+		font-weight: bold;
+		padding: 20px;
+		height: 80px;
+		color: chocolate;
+	}
+
+	.csvFile {
+		background-color: lavender;
+		padding-left: 10px;
+		padding-right: 20px;
+		padding-top: 5px;
+		color: dodgerblue;
+	}
+   
+</style>
+
+
+
+<div class="container">
+   <h2>Admin Dashboard</h2>
+   <div class="row">
+      <div class="Submission col-lg-6 col-md-6">
+         <div class="sub">
+            T
+            <div class="navbar navbar-right">
+               12
+               <p>submissions</p>
+            </div>
+         </div>
+         <div class="ViewSub">
+            view Submission
+            <a class="navbar-right" href="@Url.Action("Index", "Submission")"> <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+         </div>
+      </div>
+
+      <div class="viewstudent navbar-right col-lg-6 col-lg-push-0">
+         <div class="sub">
+            <span class="glyphicon glyphicon-user"></span>
+            <div class="navbar-right">
+               124
+               <p>Students</p>
+            </div>
+         </div>
+         <div class="ViewStud">
+            view Student
+            <a  class="navbar-right" href="@Url.Action("Index", "Student")"> <span class="glyphicon glyphicon-circle-arrow-right "></span></a>
+         </div>
+      </div>
+   </div>
+ </div>
+ <div class="container">
+    <div class="row">
+      <div class="Supervisor col-lg-3 ">
+         <div class="sup">
+            <span class="glyphicon glyphicon-eye-open"></span>
+            <div class="navbar-right">
+               5
+               <p>supervisors</p>
+            </div>
+         </div>
+         <div class="ViewSup">
+            view Supervisors
+            <a href="#"> <span class="glyphicon glyphicon-circle-arrow-right navbar-right"></span></a>
+         </div>
+      </div>
+      <div class="Supervisor col-lg-3 ">
+         <div class="sup">
+            <span class="glyphicon glyphicon-wrench"></span>
+            <div class="navbar-right">
+               5
+               <p>Technologies</p>
+            </div>
+         </div>
+         <div class="ViewSup">
+            view Tech
+            <a href="#"> <span class="glyphicon glyphicon-circle-arrow-right navbar-right"></span></a>
+         </div>
+      </div>
+       <div class="Supervisor col-lg-3">
+                <div class="sup">
+                   <span class="glyphicon glyphicon-book"></span>
+                   <div class="navbar-right">
+                      5
+                      <p>courses</p>
+                   </div>
+                </div>
+                <div class="ViewSup">
+                   view Tech
+                   <a href="#"> <span class="glyphicon glyphicon-circle-arrow-right navbar-right"></span></a>
+                </div>
+             </div>
+             <div class="Supervisor col-lg-3">
+                <div class="sup">
+                   <span class="glyphicon glyphicon-bookmark"></span>
+                   <div class="navbar-right">
+                      5
+                      <p>streams</p>
+                   </div>
+                </div>
+                <div class="ViewSup">
+                   view Tech
+                   <a href="#"> <span class="glyphicon glyphicon-circle-arrow-right navbar-right"></span></a>
+                </div>
+             </div>
+          </div>
+       </div>
+       <div class="container download">
+          <div class="row">
+             <div class="col-lg-6 col-lg-push-0">
+                <div class="pdf">
+                   <span class="glyphicon glyphicon-save"></span>
+                   <div class="navbar-right">
+                      <p>PDF</p>
+                   </div>
+                </div>
+                <div class="report">
+                   generate report
+                   <a class="navbar-right" href="#"> <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                </div>
+             </div>
+
+             <div class=" navbar-right col-lg-6 col-lg-push-0">
+                <div class="csv">
+                   <span class="glyphicon glyphicon-open"></span>
+                   <div class="navbar-right">
+                      <p>CSV</p>
+                   </div>
+                </div>
+                <div class="csvFile">
+                   Upload CSV File
+                   <a class="navbar-right" href="#"> <span class="glyphicon glyphicon-circle-arrow-right"></span></a>
+                </div>
+             </div>
+         </div>
+     </div>
+
