@@ -1,0 +1,21 @@
+﻿@using NCIProject.Models
+
+ <style>
+    .navTop{
+       margin-top:15px;       
+    }
+ </style>
+
+
+   <ul class="nav navbar-nav navbar-right">
+      <li>
+         @Html.ActionLink("Register", "register", "User", null, null)
+      </li>
+      <li>
+         @Html.ActionLink("Login", "login", "User", null, null)
+      </li>
+      <li class="navTop col-md-4">        
+      @Html.DropDownList("Student_ID", new SelectList(Enum.GetValues(typeof(Student_ID))))       
+      </li>
+   </ul>
+
