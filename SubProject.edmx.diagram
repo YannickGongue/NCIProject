@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b1df8d0169614691b24a33f89863d268" Name="Diagram1">
+        <EntityTypeShape EntityType="DbProjectSubModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.Table" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_AspNetRole" Width="1.5" PointX="7.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_AspNetUserRole" Width="1.5" PointX="7.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_COURSE" Width="1.5" PointX="2.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_FILE" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_FileType" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_STREAM" Width="1.5" PointX="4.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_STUDENT" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_SUBMISSION" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_SUBMISSIONDETAILS" Width="1.5" PointX="7.5" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_SUPERVISOR" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_TECHNOLOGIE" Width="1.5" PointX="4.875" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="DbProjectSubModel.TBL_USER" Width="1.5" PointX="9.75" PointY="6.75" IsExpanded="true" />
+        <AssociationConnector Association="DbProjectSubModel.FK_TBL_FILE_TBL_FileType" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectSubModel.FK_TBL_SUBMISSION_ToTBL_FILE" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectSubModel.FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION" ManuallyRouted="false" />
+        <AssociationConnector Association="DbProjectSubModel.FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

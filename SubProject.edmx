@@ -1,0 +1,608 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="DbProjectSubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ID_student" />
+          </Key>
+          <Property Name="ID_student" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Course_ID" Type="int" />
+          <Property Name="Stream_ID" Type="int" />
+          <Property Name="Supervisor_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_AspNetRole">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="int" Nullable="false" />
+          <Property Name="Name" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_AspNetUserRole">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="int" Nullable="false" />
+          <Property Name="Role_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_COURSE">
+          <Key>
+            <PropertyRef Name="ID_Course" />
+          </Key>
+          <Property Name="ID_Course" Type="int" Nullable="false" />
+          <Property Name="Course_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_FILE">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_ID" Type="int" Nullable="false" />
+          <Property Name="Filename" Type="nvarchar" MaxLength="50" />
+          <Property Name="Content" Type="bit" />
+          <Property Name="Content_Type" Type="image" />
+          <Property Name="Submission_ID" Type="int" />
+          <Property Name="Student_ID" Type="int" />
+          <Property Name="FileType" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_FileType">
+          <Key>
+            <PropertyRef Name="File_Type_ID" />
+          </Key>
+          <Property Name="File_Type_ID" Type="int" Nullable="false" />
+          <Property Name="File_Type_Name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_STREAM">
+          <Key>
+            <PropertyRef Name="ID_Stream" />
+          </Key>
+          <Property Name="ID_Stream" Type="int" Nullable="false" />
+          <Property Name="Stream_name" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_STUDENT">
+          <Key>
+            <PropertyRef Name="ID_student" />
+          </Key>
+          <Property Name="ID_student" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Course_ID" Type="int" />
+          <Property Name="Stream_ID" Type="int" />
+          <Property Name="Supervisor_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_SUBMISSION">
+          <Key>
+            <PropertyRef Name="Submission_ID" />
+          </Key>
+          <Property Name="Submission_ID" Type="int" Nullable="false" />
+          <Property Name="ID_Student" Type="int" />
+          <Property Name="ID_File" Type="int" />
+          <Property Name="Linkedlin_URL" Type="varchar(max)" />
+          <Property Name="Short_Desc" Type="nvarchar(max)" />
+          <Property Name="Long_Desc" Type="nvarchar(max)" />
+          <Property Name="tech" Type="nvarchar(max)" />
+          <Property Name="Projekt_Title" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="TBL_SUBMISSIONDETAILS">
+          <Key>
+            <PropertyRef Name="SubmissionDetails_ID" />
+          </Key>
+          <Property Name="SubmissionDetails_ID" Type="int" Nullable="false" />
+          <Property Name="ID_Submission" Type="int" />
+          <Property Name="ID_tech" Type="int" />
+        </EntityType>
+        <EntityType Name="TBL_SUPERVISOR">
+          <Key>
+            <PropertyRef Name="ID_Supervisor" />
+          </Key>
+          <Property Name="ID_Supervisor" Type="int" Nullable="false" />
+          <Property Name="Firstname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Lastname" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_TECHNOLOGIE">
+          <Key>
+            <PropertyRef Name="tech_ID" />
+          </Key>
+          <Property Name="tech_ID" Type="int" Nullable="false" />
+          <Property Name="Tech_name" Type="varbinary" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="TBL_USER">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="Username" Type="nvarchar" MaxLength="50" />
+          <Property Name="Student_ID" Type="nvarchar" MaxLength="50" />
+          <Property Name="SecurityStamp" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_TBL_FILE_TBL_FileType">
+          <End Role="TBL_FileType" Type="Self.TBL_FileType" Multiplicity="0..1" />
+          <End Role="TBL_FILE" Type="Self.TBL_FILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_FileType">
+              <PropertyRef Name="File_Type_ID" />
+            </Principal>
+            <Dependent Role="TBL_FILE">
+              <PropertyRef Name="FileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSION_ToTBL_FILE">
+          <End Role="TBL_FILE" Type="Self.TBL_FILE" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSION" Type="Self.TBL_SUBMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_FILE">
+              <PropertyRef Name="File_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSION">
+              <PropertyRef Name="ID_File" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE">
+          <End Role="TBL_TECHNOLOGIE" Type="Self.TBL_TECHNOLOGIE" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSIONDETAILS" Type="Self.TBL_SUBMISSIONDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_TECHNOLOGIE">
+              <PropertyRef Name="tech_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSIONDETAILS">
+              <PropertyRef Name="ID_tech" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION">
+          <End Role="TBL_SUBMISSION" Type="Self.TBL_SUBMISSION" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSIONDETAILS" Type="Self.TBL_SUBMISSIONDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SUBMISSION">
+              <PropertyRef Name="Submission_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSIONDETAILS">
+              <PropertyRef Name="ID_Submission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbProjectSubModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_AspNetRole" EntityType="Self.TBL_AspNetRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_AspNetUserRole" EntityType="Self.TBL_AspNetUserRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_FILE" EntityType="Self.TBL_FILE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_FileType" EntityType="Self.TBL_FileType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_STREAM" EntityType="Self.TBL_STREAM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_STUDENT" EntityType="Self.TBL_STUDENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SUBMISSION" EntityType="Self.TBL_SUBMISSION" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SUBMISSIONDETAILS" EntityType="Self.TBL_SUBMISSIONDETAILS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_SUPERVISOR" EntityType="Self.TBL_SUPERVISOR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_TECHNOLOGIE" EntityType="Self.TBL_TECHNOLOGIE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TBL_USER" EntityType="Self.TBL_USER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_TBL_FILE_TBL_FileType" Association="Self.FK_TBL_FILE_TBL_FileType">
+            <End Role="TBL_FileType" EntitySet="TBL_FileType" />
+            <End Role="TBL_FILE" EntitySet="TBL_FILE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSION_ToTBL_FILE" Association="Self.FK_TBL_SUBMISSION_ToTBL_FILE">
+            <End Role="TBL_FILE" EntitySet="TBL_FILE" />
+            <End Role="TBL_SUBMISSION" EntitySet="TBL_SUBMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE" Association="Self.FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE">
+            <End Role="TBL_TECHNOLOGIE" EntitySet="TBL_TECHNOLOGIE" />
+            <End Role="TBL_SUBMISSIONDETAILS" EntitySet="TBL_SUBMISSIONDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION" Association="Self.FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION">
+            <End Role="TBL_SUBMISSION" EntitySet="TBL_SUBMISSION" />
+            <End Role="TBL_SUBMISSIONDETAILS" EntitySet="TBL_SUBMISSIONDETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DbProjectSubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Table">
+          <Key>
+            <PropertyRef Name="ID_student" />
+          </Key>
+          <Property Name="ID_student" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Course_ID" Type="Int32" />
+          <Property Name="Stream_ID" Type="Int32" />
+          <Property Name="Supervisor_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_AspNetRole">
+          <Key>
+            <PropertyRef Name="Id_Role" />
+          </Key>
+          <Property Name="Id_Role" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_AspNetUserRole">
+          <Key>
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_User" Type="Int32" Nullable="false" />
+          <Property Name="Role_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_COURSE">
+          <Key>
+            <PropertyRef Name="ID_Course" />
+          </Key>
+          <Property Name="ID_Course" Type="Int32" Nullable="false" />
+          <Property Name="Course_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_FILE">
+          <Key>
+            <PropertyRef Name="File_ID" />
+          </Key>
+          <Property Name="File_ID" Type="Int32" Nullable="false" />
+          <Property Name="Filename" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="Boolean" />
+          <Property Name="Content_Type" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Submission_ID" Type="Int32" />
+          <Property Name="Student_ID" Type="Int32" />
+          <Property Name="FileType" Type="Int32" />
+          <NavigationProperty Name="TBL_FileType" Relationship="Self.FK_TBL_FILE_TBL_FileType" FromRole="TBL_FILE" ToRole="TBL_FileType" />
+          <NavigationProperty Name="TBL_SUBMISSION" Relationship="Self.FK_TBL_SUBMISSION_ToTBL_FILE" FromRole="TBL_FILE" ToRole="TBL_SUBMISSION" />
+        </EntityType>
+        <EntityType Name="TBL_FileType">
+          <Key>
+            <PropertyRef Name="File_Type_ID" />
+          </Key>
+          <Property Name="File_Type_ID" Type="Int32" Nullable="false" />
+          <Property Name="File_Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_FILE" Relationship="Self.FK_TBL_FILE_TBL_FileType" FromRole="TBL_FileType" ToRole="TBL_FILE" />
+        </EntityType>
+        <EntityType Name="TBL_STREAM">
+          <Key>
+            <PropertyRef Name="ID_Stream" />
+          </Key>
+          <Property Name="ID_Stream" Type="Int32" Nullable="false" />
+          <Property Name="Stream_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_STUDENT">
+          <Key>
+            <PropertyRef Name="ID_student" />
+          </Key>
+          <Property Name="ID_student" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Course_ID" Type="Int32" />
+          <Property Name="Stream_ID" Type="Int32" />
+          <Property Name="Supervisor_ID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="TBL_SUBMISSION">
+          <Key>
+            <PropertyRef Name="Submission_ID" />
+          </Key>
+          <Property Name="Submission_ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Student" Type="Int32" />
+          <Property Name="ID_File" Type="Int32" />
+          <Property Name="Linkedlin_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Short_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Long_Desc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="tech" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Projekt_Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TBL_FILE" Relationship="Self.FK_TBL_SUBMISSION_ToTBL_FILE" FromRole="TBL_SUBMISSION" ToRole="TBL_FILE" />
+          <NavigationProperty Name="TBL_SUBMISSIONDETAILS" Relationship="Self.FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION" FromRole="TBL_SUBMISSION" ToRole="TBL_SUBMISSIONDETAILS" />
+        </EntityType>
+        <EntityType Name="TBL_SUBMISSIONDETAILS">
+          <Key>
+            <PropertyRef Name="SubmissionDetails_ID" />
+          </Key>
+          <Property Name="SubmissionDetails_ID" Type="Int32" Nullable="false" />
+          <Property Name="ID_Submission" Type="Int32" />
+          <Property Name="ID_tech" Type="Int32" />
+          <NavigationProperty Name="TBL_SUBMISSION" Relationship="Self.FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION" FromRole="TBL_SUBMISSIONDETAILS" ToRole="TBL_SUBMISSION" />
+          <NavigationProperty Name="TBL_TECHNOLOGIE" Relationship="Self.FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE" FromRole="TBL_SUBMISSIONDETAILS" ToRole="TBL_TECHNOLOGIE" />
+        </EntityType>
+        <EntityType Name="TBL_SUPERVISOR">
+          <Key>
+            <PropertyRef Name="ID_Supervisor" />
+          </Key>
+          <Property Name="ID_Supervisor" Type="Int32" Nullable="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="TBL_TECHNOLOGIE">
+          <Key>
+            <PropertyRef Name="tech_ID" />
+          </Key>
+          <Property Name="tech_ID" Type="Int32" Nullable="false" />
+          <Property Name="Tech_name" Type="Binary" MaxLength="50" FixedLength="false" />
+          <NavigationProperty Name="TBL_SUBMISSIONDETAILS" Relationship="Self.FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE" FromRole="TBL_TECHNOLOGIE" ToRole="TBL_SUBMISSIONDETAILS" />
+        </EntityType>
+        <EntityType Name="TBL_USER">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Username" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Student_ID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <Association Name="FK_TBL_FILE_TBL_FileType">
+          <End Role="TBL_FileType" Type="Self.TBL_FileType" Multiplicity="0..1" />
+          <End Role="TBL_FILE" Type="Self.TBL_FILE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_FileType">
+              <PropertyRef Name="File_Type_ID" />
+            </Principal>
+            <Dependent Role="TBL_FILE">
+              <PropertyRef Name="FileType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSION_ToTBL_FILE">
+          <End Role="TBL_FILE" Type="Self.TBL_FILE" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSION" Type="Self.TBL_SUBMISSION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_FILE">
+              <PropertyRef Name="File_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSION">
+              <PropertyRef Name="ID_File" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION">
+          <End Role="TBL_SUBMISSION" Type="Self.TBL_SUBMISSION" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSIONDETAILS" Type="Self.TBL_SUBMISSIONDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_SUBMISSION">
+              <PropertyRef Name="Submission_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSIONDETAILS">
+              <PropertyRef Name="ID_Submission" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE">
+          <End Role="TBL_TECHNOLOGIE" Type="Self.TBL_TECHNOLOGIE" Multiplicity="0..1" />
+          <End Role="TBL_SUBMISSIONDETAILS" Type="Self.TBL_SUBMISSIONDETAILS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TBL_TECHNOLOGIE">
+              <PropertyRef Name="tech_ID" />
+            </Principal>
+            <Dependent Role="TBL_SUBMISSIONDETAILS">
+              <PropertyRef Name="ID_tech" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="DbProjectSubEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="Table" EntityType="Self.Table" />
+          <EntitySet Name="TBL_AspNetRole" EntityType="Self.TBL_AspNetRole" />
+          <EntitySet Name="TBL_AspNetUserRole" EntityType="Self.TBL_AspNetUserRole" />
+          <EntitySet Name="TBL_COURSE" EntityType="Self.TBL_COURSE" />
+          <EntitySet Name="TBL_FILE" EntityType="Self.TBL_FILE" />
+          <EntitySet Name="TBL_FileType" EntityType="Self.TBL_FileType" />
+          <EntitySet Name="TBL_STREAM" EntityType="Self.TBL_STREAM" />
+          <EntitySet Name="TBL_STUDENT" EntityType="Self.TBL_STUDENT" />
+          <EntitySet Name="TBL_SUBMISSION" EntityType="Self.TBL_SUBMISSION" />
+          <EntitySet Name="TBL_SUBMISSIONDETAILS" EntityType="Self.TBL_SUBMISSIONDETAILS" />
+          <EntitySet Name="TBL_SUPERVISOR" EntityType="Self.TBL_SUPERVISOR" />
+          <EntitySet Name="TBL_TECHNOLOGIE" EntityType="Self.TBL_TECHNOLOGIE" />
+          <EntitySet Name="TBL_USER" EntityType="Self.TBL_USER" />
+          <AssociationSet Name="FK_TBL_FILE_TBL_FileType" Association="Self.FK_TBL_FILE_TBL_FileType">
+            <End Role="TBL_FileType" EntitySet="TBL_FileType" />
+            <End Role="TBL_FILE" EntitySet="TBL_FILE" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSION_ToTBL_FILE" Association="Self.FK_TBL_SUBMISSION_ToTBL_FILE">
+            <End Role="TBL_FILE" EntitySet="TBL_FILE" />
+            <End Role="TBL_SUBMISSION" EntitySet="TBL_SUBMISSION" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION" Association="Self.FK_TBL_SUBMISSIONDETAILS_ToTBL_SUBMISSION">
+            <End Role="TBL_SUBMISSION" EntitySet="TBL_SUBMISSION" />
+            <End Role="TBL_SUBMISSIONDETAILS" EntitySet="TBL_SUBMISSIONDETAILS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE" Association="Self.FK_TBL_SUBMISSIONDETAILS_TBL_TECHNOLOGIE">
+            <End Role="TBL_TECHNOLOGIE" EntitySet="TBL_TECHNOLOGIE" />
+            <End Role="TBL_SUBMISSIONDETAILS" EntitySet="TBL_SUBMISSIONDETAILS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DbProjectSubModelStoreContainer" CdmEntityContainer="DbProjectSubEntities2">
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="DbProjectSubModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table">
+            <EntityTypeMapping TypeName="DbProjectSubModel.Table">
+              <MappingFragment StoreEntitySet="Table">
+                <ScalarProperty Name="ID_student" ColumnName="ID_student" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Stream_ID" ColumnName="Stream_ID" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_AspNetRole">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_AspNetRole">
+              <MappingFragment StoreEntitySet="TBL_AspNetRole">
+                <ScalarProperty Name="Id_Role" ColumnName="Id_Role" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_AspNetUserRole">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_AspNetUserRole">
+              <MappingFragment StoreEntitySet="TBL_AspNetUserRole">
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_COURSE">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_COURSE">
+              <MappingFragment StoreEntitySet="TBL_COURSE">
+                <ScalarProperty Name="ID_Course" ColumnName="ID_Course" />
+                <ScalarProperty Name="Course_name" ColumnName="Course_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_FILE">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_FILE">
+              <MappingFragment StoreEntitySet="TBL_FILE">
+                <ScalarProperty Name="File_ID" ColumnName="File_ID" />
+                <ScalarProperty Name="Filename" ColumnName="Filename" />
+                <ScalarProperty Name="Content" ColumnName="Content" />
+                <ScalarProperty Name="Content_Type" ColumnName="Content_Type" />
+                <ScalarProperty Name="Submission_ID" ColumnName="Submission_ID" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="FileType" ColumnName="FileType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_FileType">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_FileType">
+              <MappingFragment StoreEntitySet="TBL_FileType">
+                <ScalarProperty Name="File_Type_ID" ColumnName="File_Type_ID" />
+                <ScalarProperty Name="File_Type_Name" ColumnName="File_Type_Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_STREAM">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_STREAM">
+              <MappingFragment StoreEntitySet="TBL_STREAM">
+                <ScalarProperty Name="ID_Stream" ColumnName="ID_Stream" />
+                <ScalarProperty Name="Stream_name" ColumnName="Stream_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_STUDENT">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_STUDENT">
+              <MappingFragment StoreEntitySet="TBL_STUDENT">
+                <ScalarProperty Name="ID_student" ColumnName="ID_student" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Course_ID" ColumnName="Course_ID" />
+                <ScalarProperty Name="Stream_ID" ColumnName="Stream_ID" />
+                <ScalarProperty Name="Supervisor_ID" ColumnName="Supervisor_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SUBMISSION">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_SUBMISSION">
+              <MappingFragment StoreEntitySet="TBL_SUBMISSION">
+                <ScalarProperty Name="Submission_ID" ColumnName="Submission_ID" />
+                <ScalarProperty Name="ID_Student" ColumnName="ID_Student" />
+                <ScalarProperty Name="ID_File" ColumnName="ID_File" />
+                <ScalarProperty Name="Linkedlin_URL" ColumnName="Linkedlin_URL" />
+                <ScalarProperty Name="Short_Desc" ColumnName="Short_Desc" />
+                <ScalarProperty Name="Long_Desc" ColumnName="Long_Desc" />
+                <ScalarProperty Name="tech" ColumnName="tech" />
+                <ScalarProperty Name="Projekt_Title" ColumnName="Projekt_Title" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SUBMISSIONDETAILS">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_SUBMISSIONDETAILS">
+              <MappingFragment StoreEntitySet="TBL_SUBMISSIONDETAILS">
+                <ScalarProperty Name="SubmissionDetails_ID" ColumnName="SubmissionDetails_ID" />
+                <ScalarProperty Name="ID_Submission" ColumnName="ID_Submission" />
+                <ScalarProperty Name="ID_tech" ColumnName="ID_tech" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_SUPERVISOR">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_SUPERVISOR">
+              <MappingFragment StoreEntitySet="TBL_SUPERVISOR">
+                <ScalarProperty Name="ID_Supervisor" ColumnName="ID_Supervisor" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_TECHNOLOGIE">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_TECHNOLOGIE">
+              <MappingFragment StoreEntitySet="TBL_TECHNOLOGIE">
+                <ScalarProperty Name="tech_ID" ColumnName="tech_ID" />
+                <ScalarProperty Name="Tech_name" ColumnName="Tech_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TBL_USER">
+            <EntityTypeMapping TypeName="DbProjectSubModel.TBL_USER">
+              <MappingFragment StoreEntitySet="TBL_USER">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Username" ColumnName="Username" />
+                <ScalarProperty Name="Student_ID" ColumnName="Student_ID" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Kein" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
