@@ -1,85 +1,12 @@
-﻿@model System.Data.DataTable
+﻿@model NCIProject.Models.Submission
 
 @{
    ViewBag.Title = "Index";
    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<style>
-   .filstyle {
-      margin-top: 20px;
-   }
+<h2>Index</h2>
 
-   .glyphicon{
-      color: cornflowerblue;
-   }
-</style>
-
-<div class="container filstyle">
-
-   <h3>
-      Import Excel
-   </h3>
-
-   <table class="table table-bordered ">
-      <thead>
-         <tr>
-            <th>Excel File</th>
-            <th>
-               <p>
-                  <button> Choose File</button>
-                  No choosen File
-               </p>
-            </th>
-
-         </tr>
-      </thead>
-      <tbody>
-         <tr>
-            <td></td>
-            <td> <button> Submit</button></td>
-         </tr>
-      </tbody>
-   </table>
-
+<div>
+   <a href="@Url.Action("Index", "Admin")"> <span class="glyphicon glyphicon-circle-arrow-left "></span> back to Admin Dashboard</a>
 </div>
-
-<div class="container">
-   <table class="table table-bordered table-sm">
-      <thead class="thead-dark">
-         <tr>
-            <th>ID_student</th>
-            <th>Firstname</th>
-            <th>Lastname</th>
-            <th>Course_ID</th>
-            <th>Stream_ID</th>
-            <th>Supervisor_ID</th>
-         </tr>
-      </thead>
-      <tbody>
-         @for (int item = 0; item < Model.Rows.Count; item++)
-         {
-            <tr>
-               <td>  @Model.Rows[item][0] </td>
-               <td>  @Model.Rows[item][1] </td>
-               <td>  @Model.Rows[item][2] </td>
-               <td>  @Model.Rows[item][3] </td>
-               <td>  @Model.Rows[item][4] </td>
-               <td>  @Model.Rows[item][5] </td>
-
-            </tr>
-
-         }
-      </tbody>
-   </table>
-</div>
-
-<div class="form-group">
-   
-   <div class="col-md-10">
-      <a href="@Url.Action("Index", "Admin")"> <span class="glyphicon glyphicon-circle-arrow-left "></span> back to Admin Dashboard</a>
-      <span class="glyphicon glyphicon-refresh navbar-right btn-default col-md-push-2" formaction=@Url.Action("Index") formmethod="post"></span>
-   </div>
-</div>
-
-
